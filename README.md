@@ -20,14 +20,15 @@ Install Jupyter notebook as follows ([link](https://jupyter.org/install)):
 conda install -c conda-forge notebook
 ```
 
-Run Jupyter notebook by:
-```bash
-jupyter notebook
-```
-
 Enable Conda environment in Jupyter notebook guide ([link]([https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084)):
 
 ```bash
 conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=aoc
 ```
+
+Run Jupyter notebook by:
+```bash
+jupyter notebook
+```
+
