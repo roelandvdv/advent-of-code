@@ -10,6 +10,11 @@ conda create --name aoc python=3.7
 conda activate aoc
 ```
 
+Install packages:
+```bash
+pip install -r requirements.txt
+```
+
 Install Jupyter notebook as follows ([link](https://jupyter.org/install)):
 ```bash
 conda install -c conda-forge notebook
