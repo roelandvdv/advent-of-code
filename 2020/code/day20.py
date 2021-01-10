@@ -1,10 +1,7 @@
-# Load data
-
-# TODO: make expanding grid, so approach the coordinates differently
-# TODO: use lookups of edges instead of brute force, should be much faster
-
 import numpy as np
 
+# TODO: make expanding grid, so approach the coordinates differently
+# TODO: use lookups of edges instead of brute force, should be much faster. needs only eight entries per tile
 
 def load_data(filename = "2020/data/day20test.txt"):
     with open(filename, "r") as f:
@@ -202,10 +199,7 @@ class Tile():
         self.flip = flip
 
 
-    def get_edges(self):
-        """Return edges in certain order. top, right, bottom, left.
-        First rotation, then flip.
-        """
+    def get_tile_data(self):
         tile_data = np.rot90(self.tile_data, -self.rotation)
 
         if self.flip in [1, 3]:
@@ -214,6 +208,19 @@ class Tile():
             tile_data = np.flipud(tile_data)
         if self.flip == 3:
             tile_data = np.flip(tile_data)
+        return tile_data
+
+    
+    def get_tile_data_without_edges(self):
+        tile_data = self.get_tile_data()
+        return tile_data[1:-1, 1:-1]
+
+
+    def get_edges(self):
+        """Return edges in certain order. top, right, bottom, left.
+        First rotation, then flip.
+        """
+        tile_data = self.get_tile_data()
 
         list_of_edges = [
             tile_data[0,:], # top
@@ -221,5 +228,4 @@ class Tile():
             tile_data[-1,:], # bottom
             tile_data[:,0] # left
         ]
-        
         return list_of_edges # numpy array

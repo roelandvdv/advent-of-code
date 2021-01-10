@@ -93,6 +93,45 @@ def test_get_neighbours():
     assert grid.get_neighbours(test_coord).sort() == neighbours.sort()
 
 
+def test_get_tile_data_without_edges():
+    tile = Tile(1, tile_2311)
+
+    tile_2311_without_edges = np.array(
+        [
+            [1, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 0, 0, 1],
+            [1, 1, 1, 0, 1, 0, 0, 0],
+            [1, 0, 1, 1, 0, 1, 1, 1],
+            [1, 0, 0, 0, 1, 0, 1, 1],
+            [1, 0, 1, 0, 1, 0, 0, 1],
+            [0, 1, 0, 0, 0, 0, 1, 0],
+            [1, 1, 0, 0, 0, 1, 0, 1],
+        ]
+    )
+
+    assert (tile.get_tile_data_without_edges() == tile_2311_without_edges).all()
+
+
+def test_get_tile_data_without_edges_90():
+    tile = Tile(1, tile_2311)
+    tile.rotation = 1
+
+    tile_2311_without_edges_90 = np.array(
+        [
+            [1, 0, 1, 1, 1, 1, 0, 1],
+            [1, 1, 0, 0, 0, 1, 0, 0],
+            [0, 0, 1, 0, 1, 1, 0, 0],
+            [0, 0, 0, 0, 1, 0, 1, 1],
+            [0, 0, 1, 1, 0, 1, 1, 0],
+            [1, 0, 0, 0, 1, 0, 0, 0],
+            [0, 1, 0, 1, 1, 0, 0, 0],
+            [1, 0, 1, 1, 1, 0, 1, 0]
+        ]
+    )
+
+    assert (tile.get_tile_data_without_edges() == tile_2311_without_edges_90).all()
+
+
 test_edges = [
     [0, 0, 1, 1, 0, 1, 0, 0, 1, 0], # top
     [0, 0, 0, 1, 0, 1, 1, 0, 0, 1], # right
