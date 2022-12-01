@@ -6,7 +6,7 @@ My solutions to https://adventofcode.com.
 
 Set up Conda environment (after installing Conda/Miniconda):
 ```bash
-conda create --name aoc python=3.7
+conda create --name aoc python=3.10
 conda activate aoc
 ```
 
@@ -20,10 +20,9 @@ Install Jupyter notebook as follows ([link](https://jupyter.org/install)):
 conda install -c conda-forge notebook
 ```
 
-Enable Conda environment in Jupyter notebook guide ([link]([https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084)):
+Enable Conda environment in Jupyter notebook  ([link]([https://medium.com/@nrk25693/how-to-add-your-conda-environment-to-your-jupyter-notebook-in-just-4-steps-abeab8b8d084)):
 
 ```bash
-conda install -c anaconda ipykernel
 python -m ipykernel install --user --name=aoc
 ```
 
